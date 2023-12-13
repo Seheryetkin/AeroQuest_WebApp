@@ -1,0 +1,22 @@
+export const Navlink = [
+  {
+    id:1,
+    path:'/',
+    name:'Home'
+  },
+  {
+    id:1,
+    path:'/about',
+    name:'About'
+  },
+  {
+    id:1,
+    path:'/services',
+    name:'Services'
+  },
+  {
+    id:1,
+    path:'/contact',
+    name:'Contact'
+  },
+]
