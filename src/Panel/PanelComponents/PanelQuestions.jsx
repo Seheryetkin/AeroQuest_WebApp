@@ -17,12 +17,12 @@ const Button = styled.button`
 `;
 
 const CorrectButton = styled(Button)`
-  background-color: #4caf50; /* Yeşil renk kodu */
+  background-color: #4caf50; 
   color: white;
 `;
 
 const IncorrectButton = styled(Button)`
-  background-color: #f44336; /* Kırmızı renk kodu */
+  background-color: #f44336; 
   color: white;
 `;
 
