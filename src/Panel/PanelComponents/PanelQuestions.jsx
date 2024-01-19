@@ -80,9 +80,6 @@ const PanelTest = ({ params }) => {
   const checkAnswer = (selectedAnswer, correctAnswer) => {
     return selectedAnswer === correctAnswer ? 'correct' : 'incorrect';
   };
-  //bu fonksiyon icinde sorular icin verilen cevapları kaydediyoruz, bu kayıt sadece bu component icinde olusturdugum
-  //state nesnesi olan answers arrayı icinde tutuluyor, state nesneleri sayfa yenilendiginde resetlenir yani secimler kaybolur.
-  //bu nesneyi sınavı bittiginde ya da her bir soru cevaplandıgında veritabanına kaydedersen verilen cevapları saklamış olursun.
 
   const setSelectedAnswer = (event, index, correctAnswer) => {
     const selectedAnswer = event.target.value;
