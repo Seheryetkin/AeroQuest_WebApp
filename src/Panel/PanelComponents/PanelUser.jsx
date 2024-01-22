@@ -39,7 +39,7 @@ const PanelTest = () => {
             <h1>Sorular</h1>
             <ul>
                 {currentQuestions.map(question => (
-                    <li key={question._id}>{question.content}</li> // Sorunun yapısına göre ayarlayın
+                    <li key={question._id}>{question.content}</li> 
                 ))}
             </ul>
             <Pagination

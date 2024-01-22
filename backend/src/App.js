@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 
+
 const app = express();
 const port = 8000;
 
@@ -28,6 +29,8 @@ mongoose.connection.on("connected", () => console.log("mongoose baglandi"));
 mongoose.connection.on("disconnected", () =>
   console.log("mongoose baglantı kesildi!")
 );
+
+
 
 const TestModel = new Schema({
   id: Number,
