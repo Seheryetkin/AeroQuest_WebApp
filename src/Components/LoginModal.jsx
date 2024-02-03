@@ -1,17 +1,23 @@
+
 import { useState,useRef } from 'react'
-import { Link } from 'react-router-dom'
-import App from '../App'
+import { Navigate } from 'react-router-dom'
 
 
-const LoginModal = ({modal,setModal,registermodal,setRegisterModal}) => {
+const LoginModal = ({setModal,registermodal,setRegisterModal, isAuthenticated, setIsAuthenticated}) => {
   const [noEmail,setEmail] = useState(false)
   const [noPassword,setPassword] = useState(false)
 
-  const handleRegister = () => {
-      setModal(false)
+  const showRegister = () => {
       setRegisterModal(true)
   }
+
+  const handleLogin = () => {
+    console.log("Burada da login işlemini yapman lazım, kullanıcının girdiği bilgileri veritabanında aratıp kayıtlı mı değil mi diye kontol et, kayıtlı ise setIsAuthenticated(true) ile devam etmesine izin veriyoruz.");
+    setIsAuthenticated(true)
+  }
+
   return (
+    <>
     <header className={`absolute text-center   bg-white bg-opacity-20 backdrop-blur-xl  drop-shadow-lg  box-shadow rounded-2xl  opacity-2 border-2 border-white w-[400px] h-[450px] translate-x-[550px] translate-y-[80%]`}>
       <div  onClick={() => setModal(false)} className='cursor-pointer absolute w-10 h-10 bg-blue-800 right-0 top-0  rounded-bl-xl rounded-tr-xl font-semibold text-2xl text-center'>X</div>
       <span className='text-black  font-bold text-2xl relative top-10'>Login</span>
@@ -31,10 +37,17 @@ const LoginModal = ({modal,setModal,registermodal,setRegisterModal}) => {
             <div className='flex relative left-4 items-center gap-x-2 justify-center  m-auto'><input  type='checkbox' className=''/> Remember me</div>
                 <div className='flex items-center gap-x-2 justify-center  m-auto underline underline-offset-4'>Forget Password?</div>
             </div>
-            <button className='font-semibold text-xl text-center relative  -top-[50px] left-[50px] bg-blue-500 w-[300px] h-[40px] rounded-md'>Login</button>
-            <span className='absolute left-[90px] -bottom-[15px] flex gap-x-2'>Don't  have an account? <p className='font-bold hover:underline  hover:cursor-pointer' onClick={handleRegister}>Register</p></span>
+            <button className='font-semibold text-xl text-center relative  -top-[50px] left-[50px] bg-blue-500 w-[300px] h-[40px] rounded-md' onClick={handleLogin}>Login</button>
+            <span className='absolute left-[90px] -bottom-[15px] flex gap-x-2'>Don't  have an account? <p className='font-bold hover:underline  hover:cursor-pointer' onClick={showRegister}>Register</p></span>
       </div>
     </header>
+    {registermodal && (
+      <Navigate to="/register" replace={true} />
+    )}
+    {isAuthenticated && (
+      <Navigate to="/dashboard" replace={true} />
+    )}
+    </>
   )
 }
 
